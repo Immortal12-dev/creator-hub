@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTAG Creator Hub</title>
+<style>
+:root{--site-primary:#00d084;--site-secondary:#06150f;--site-background:#030806;--site-on-primary:#02120b;--site-on-secondary:#fff;--site-on-background:#f4faf7;--site-font-body:Inter,system-ui,sans-serif;--site-font-heading:Inter,system-ui,sans-serif;--site-heading-scale:1;--site-spacing-scale:1;--site-radius-scale:1;--site-decoration-opacity:1;--surface:#07100c;--surface2:#0b1711;--border:#173126;--muted:#7f9289;--danger:#ff6262;--warning:#ffc857}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--site-font-body);background:var(--site-background);color:var(--site-on-background)}button,input,select{font:inherit}button{cursor:pointer}#app{min-height:100vh;background:radial-gradient(circle at 70% 10%,#00d08418,transparent 32%),var(--site-background);overflow:hidden}.wrap{max-width:1120px;margin:auto;padding:18px calc(22px * var(--site-spacing-scale)) 55px}.nav{display:flex;justify-content:space-between;align-items:center;padding:8px 0 20px;position:sticky;top:0;z-index:30;background:#030806e8;backdrop-filter:blur(14px)}.logo{font-weight:950;font-size:19px;letter-spacing:-.5px}.logo span{color:var(--site-primary)}.nav-actions{display:flex;gap:8px;align-items:center}.btn,.nav button{border:1px solid var(--border);border-radius:12px;padding:11px 16px;font-weight:850}.nav button{background:#15121f;color:#fff}.primary{background:var(--site-primary);color:var(--site-on-primary);box-shadow:0 10px 30px #00d08428;border-color:transparent}.secondary{background:#08110d;color:#eef8f3}.ghost{background:transparent;color:#dcece4}.btn:hover,.nav button:hover{transform:translateY(-1px);filter:brightness(1.06)}.eyebrow{color:var(--site-primary);font-weight:900;text-transform:uppercase;letter-spacing:1.4px;font-size:12px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:65px 0 55px}.hero h1{font-family:var(--site-font-heading);font-size:clamp(44px,6vw,76px);line-height:.94;margin:12px 0 16px;letter-spacing:-4px}.hero h1 span{background:linear-gradient(90deg,#00d084,#73f7bd);color:transparent;background-clip:text}.hero p{color:#9caea6;font-size:17px;line-height:1.6;max-width:650px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.hero-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.hero-stats span{padding:8px 10px;border:1px solid #1a402f;background:#08150f;border-radius:999px;color:#cce9da;font-size:11px;font-weight:800}.hero-visual{position:relative;min-height:400px;perspective:1100px}.preview{position:absolute;inset:55px 35px 25px;background:radial-gradient(circle at 58% 44%,#00d08428,transparent 35%),linear-gradient(135deg,#0a1711,#020604 70%);border:1px solid #1d4a37;border-radius:18px;box-shadow:-18px 22px 0 #0b2a1a,-30px 34px 0 #06170e,0 30px 70px #000b;transform:rotateY(-7deg) rotateX(3deg);padding:22px;overflow:hidden}.preview:before{content:"";position:absolute;inset:14px;border:1px solid #00d08435;border-radius:14px}.dash{position:relative;z-index:2;height:100%;display:grid;grid-template-columns:70px 1fr;gap:14px}.dash-side{border-right:1px solid #ffffff0b;padding:12px 7px}.dash-side div{padding:10px 4px;color:#6f8c7d;font-size:11px}.dash-side div:first-child{color:#00d084}.dash-main{padding:10px 2px}.dash-top{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#8ba79a}.dash-title{font-size:25px;font-weight:950;margin:18px 0 12px}.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.metric{background:#0a1a12;border:1px solid #17382a;border-radius:10px;padding:10px}.metric b{font-size:16px}.metric small{display:block;color:#6e8b7b;margin-top:4px}.chart{height:95px;margin-top:10px;border:1px solid #17382a;border-radius:10px;background:linear-gradient(160deg,#0a1b12,#061009);position:relative;overflow:hidden}.chart:after{content:"";position:absolute;left:5%;right:5%;top:47%;height:2px;background:linear-gradient(90deg,#00d084 0 20%,transparent 20% 25%,#00d084 25% 48%,transparent 48% 55%,#73f7bd 55% 78%,transparent 78% 83%,#00d084 83%);transform:rotate(-5deg);filter:drop-shadow(0 0 7px #00d084)}.float-card{position:absolute;z-index:5;background:#f4faf7;color:#07130e;padding:8px 11px;border-radius:10px;font-weight:900;font-size:11px;box-shadow:0 14px 35px #000b;animation:float 4.5s ease-in-out infinite}.fc1{top:35px;left:4px}.fc2{bottom:32px;right:0;animation-delay:-1.5s}.fc3{top:8px;right:30px;animation-delay:-3s}@keyframes float{50%{transform:translateY(-10px)}}.section{padding:38px 0}.section h2{font-size:30px;margin:0 0 8px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.card{background:linear-gradient(145deg,#0b1711,#050a07);border:1px solid var(--border);border-radius:16px;padding:19px;box-shadow:0 20px 50px #0009,0 0 0 1px #ffffff04 inset;transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:0 28px 60px #000b,0 0 25px #00d08412}.feature h3{margin:10px 0 5px}.feature p{color:#7f9289;line-height:1.45;font-size:14px}.icon{font-size:24px;width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#0c2117,#061009);border:1px solid #1b5138;box-shadow:0 8px 24px #00d08412,inset 0 0 20px #00d08408;position:relative;overflow:hidden}.icon:after{content:"";position:absolute;inset:4px;border:1px solid #00d0841c;border-radius:11px;transform:rotate(4deg)}.feature:hover .icon{transform:rotate(-4deg) scale(1.06);box-shadow:0 0 24px #00d08428}.bundle,.generator,.tool-grid,.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:18px}.list{display:grid;gap:9px}.item{display:flex;gap:9px;align-items:center;color:#d7e5df;font-size:14px}.check{color:#00d084;font-weight:900}.tool-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-top:18px}.tool-tab{white-space:nowrap}.tool-panel{display:none}.tool-panel.active{display:block}.field{margin:10px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#b7cec3}.input,.select{width:100%;padding:12px;border-radius:10px;background:#050b08;color:#fff;border:1px solid #1a3a2c;outline:none}.input:focus,.select:focus{border-color:#00d084;box-shadow:0 0 0 3px #00d08416}.result{min-height:210px;background:linear-gradient(145deg,#0c1b14,#050906);border-radius:14px;padding:18px;border:1px solid #173126}.result h3{margin-top:0}.result-actions{display:flex;gap:8px;flex-wrap:wrap}.ideas{display:grid;gap:8px;margin-top:12px}.idea{padding:12px;border:1px solid #173126;background:#07130d;border-radius:10px;display:flex;justify-content:space-between;gap:10px}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.plan{position:relative}.popular{position:absolute;right:14px;top:14px;background:#00d084;color:#02120b;border-radius:20px;padding:5px 8px;font-size:10px;font-weight:900}.price{font-size:38px;font-weight:900;margin:8px 0}.price small{font-size:13px;color:#918aa5}.plan ul{padding-left:18px;color:#91a69c;line-height:1.7;font-size:14px}.discord{display:flex;justify-content:space-between;align-items:center;gap:20px}.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.dash-stat{padding:14px;border:1px solid #173126;border-radius:12px;background:#07130d}.dash-stat b{font-size:24px}.dash-stat small{display:block;color:#718d80;margin-top:4px}.progress{height:8px;background:#0a1c13;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:#00d084;border-radius:inherit}.login-modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.login-modal.show{display:flex}.modal{width:min(430px,100%);background:#07100c;border:1px solid #234634;border-radius:18px;padding:22px;box-shadow:0 30px 90px #000}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:transparent;border:0;color:#9ab0a4;font-size:24px}.notice{padding:10px 12px;border-radius:10px;background:#0a1a12;border:1px solid #17382a;color:#9fc1b0;font-size:12px;margin-top:10px}.toast{position:fixed;right:18px;bottom:18px;z-index:120;background:#f4faf7;color:#07130e;padding:12px 15px;border-radius:12px;box-shadow:0 20px 50px #000b;transform:translateY(20px);opacity:0;pointer-events:none;transition:.25s;font-weight:800}.toast.show{transform:none;opacity:1}.footer{text-align:center;color:#5f7369;padding-top:40px;font-size:12px}.hidden{display:none!important}.mini{font-size:12px}.status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#91a69c}.dot{width:7px;height:7px;border-radius:50%;background:#00d084;box-shadow:0 0 10px #00d084}.mobile-menu{display:none}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-visual{min-height:350px}.grid,.plans{grid-template-columns:1fr}.bundle,.generator,.tool-grid,.dashboard-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:repeat(2,1fr)}.nav-actions .desktop-only{display:none}.mobile-menu{display:block}.preview{inset:45px 10px 20px;transform:none}.float-card{font-size:10px}.wrap{padding-left:15px;padding-right:15px}.hero h1{letter-spacing:-2px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* sites preview theme */
+:root{--site-primary:#00d084 !important;--site-secondary:#06150f !important;--site-background:#030806 !important;--site-on-primary:#02120b !important;--site-on-secondary:#fff !important;--site-on-background:#f4faf7 !important;--site-spacing-scale:1 !important;--site-radius-scale:1 !important;--site-font-body:Inter,system-ui,sans-serif !important;--site-font-heading:Inter,system-ui,sans-serif !important}
+</style>
+<style>
+:root{--glow:#00d084;--glow2:#73f7bd}
+.nav{padding:12px 0 22px}.logo{font-size:20px;text-shadow:0 0 18px #00d08430}
+.nav button,.btn{transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}.btn:hover,.nav button:hover{transform:translateY(-3px);box-shadow:0 12px 28px #00d08420}
+.hero{padding-top:78px}.hero h1{font-size:clamp(52px,7vw,88px);text-shadow:0 0 35px #00d08414}.hero h1 span{filter:drop-shadow(0 0 18px #00d08430)}
+.hero-stats span{box-shadow:inset 0 0 18px #00d08408,0 0 18px #00d08408}
+.icon{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#123322,#061009);border:1px solid #2b8a5d;box-shadow:0 10px 28px #00d08418,inset 0 0 24px #00d08410;transition:.25s}.icon:after{inset:5px;border:1px solid #73f7bd35;border-radius:13px;transform:rotate(6deg)}.feature:hover .icon{transform:translateY(-4px) rotate(-5deg) scale(1.1);box-shadow:0 0 32px #00d08440,inset 0 0 28px #00d08418}
+.feature{position:relative;overflow:hidden}.feature:before{content:"";position:absolute;inset:-60px auto auto -70px;width:150px;height:150px;background:#00d08412;border-radius:50%;filter:blur(20px);pointer-events:none}
+.card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}.card:hover{border-color:#235e42}
+.section h2{letter-spacing:-1px}.muted{line-height:1.55}
+.tool-tabs{scrollbar-width:none}.tool-tabs::-webkit-scrollbar{display:none}.tool-tab{border-radius:999px}
+.result,.dash-stat,.metric,.idea{box-shadow:inset 0 0 24px #00d08405}
+.plans .card{overflow:hidden}.plans .card:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#00d084,transparent);opacity:.7}
+.discord{background:linear-gradient(135deg,#0b1912,#07100c);border-color:#23543b}
+.footer{padding-bottom:20px}
+@media(max-width:850px){.hero{padding-top:50px}.hero h1{font-size:52px}.icon{width:54px;height:54px}}
+</style>
+<style>
+.hero-visual{transform-style:preserve-3d}.preview{box-shadow:-22px 28px 0 #0d3823,-38px 44px 0 #06170e,0 38px 90px #000c,0 0 45px #00d08412}.preview:after{content:"";position:absolute;left:8%;right:8%;bottom:-22px;height:28px;background:#00d08418;filter:blur(18px);border-radius:50%;pointer-events:none}.float-card{border:1px solid #d7fff055;box-shadow:0 16px 35px #000c,0 0 22px #00d08418;transform:translateZ(45px)}.fc1{transform:translateZ(60px) rotate(-2deg)}.fc2{transform:translateZ(80px) rotate(2deg)}.fc3{transform:translateZ(70px) rotate(-3deg)}
+.card{position:relative;overflow:hidden;box-shadow:0 24px 55px #000b,0 8px 0 #06130c,inset 0 1px 0 #ffffff08}.card:after{content:"";position:absolute;inset:1px;border-radius:15px;background:linear-gradient(135deg,#ffffff07,transparent 28%,transparent 70%,#00d08406);pointer-events:none}.feature{transform-style:preserve-3d}.feature:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:0 34px 70px #000c,0 10px 0 #06130c,0 0 35px #00d08416}.feature .icon{transform:translateZ(18px)}
+.section{position:relative}.section:before{content:"";position:absolute;width:260px;height:120px;left:-180px;top:55px;background:#00d0840a;filter:blur(55px);pointer-events:none}.section h2{text-shadow:0 5px 22px #00d08410}.tool-panel>.generator,.tool-panel>.tool-grid{perspective:1000px}.tool-panel .card,.tool-panel .result{box-shadow:0 25px 55px #000b,0 7px 0 #06130c,inset 0 1px 0 #ffffff08}.tool-tab{box-shadow:0 8px 18px #0008,inset 0 1px 0 #ffffff08}.dash-stat,.metric,.idea{box-shadow:0 10px 22px #0007,inset 0 1px 0 #ffffff08,inset 0 -8px 18px #00d08404}.discord{box-shadow:0 28px 65px #000c,0 8px 0 #06130c,inset 0 1px 0 #ffffff08}.plans .card{transform-style:preserve-3d}.plans .card:hover{transform:translateY(-7px) rotateX(1.5deg)}
+@media(max-width:850px){.preview{box-shadow:-12px 18px 0 #0d3823,-20px 28px 0 #06170e,0 28px 60px #000b}.feature:hover,.plans .card:hover{transform:translateY(-4px)}}
+</style>
+<style>
+.hero-visual:before,.hero-visual:after{content:"";position:absolute;pointer-events:none;border-radius:24px}.hero-visual:before{inset:42px 18px 18px;background:#06140d;border:1px solid #123b29;box-shadow:0 18px 0 #041009,0 30px 55px #000b;transform:translateZ(-45px) rotateY(-7deg) rotateX(3deg)}.hero-visual:after{inset:28px 4px 4px;background:#071a11;border:1px solid #0d2b1e;box-shadow:0 18px 0 #020806,0 35px 70px #0008;transform:translateZ(-80px) rotateY(-7deg) rotateX(3deg)}
+.preview{z-index:3}.float-card{z-index:8}.hero-visual{filter:drop-shadow(0 20px 30px #0008)}
+.preview:before{box-shadow:inset 0 0 35px #00d08408}.dash-main:before{content:"";position:absolute;inset:35px 18px auto auto;width:80px;height:80px;background:#00d08412;border-radius:50%;filter:blur(22px);pointer-events:none}.metric,.chart,.dash-side{box-shadow:inset 0 0 18px #00d08406,0 8px 18px #0007}
+.feature,.plans .card,.discord,.bundle>.card,.tool-panel>.card,.tool-panel>.result,.dashboard-grid>.card{box-shadow:0 24px 0 #030906,0 34px 65px #000b,inset 0 1px 0 #ffffff0a,inset 0 -22px 35px #00d08404}.feature:after,.plans .card:after{box-shadow:inset 0 0 30px #00d08408}.feature:before{box-shadow:30px 30px 50px #00d08410}
+.grid .feature:nth-child(2){transform:translateY(8px)}.grid .feature:nth-child(5){transform:translateY(-6px)}.grid .feature:nth-child(2):hover,.grid .feature:nth-child(5):hover{transform:translateY(-3px)}
+.section:nth-of-type(3) .card,.section:nth-of-type(4) .card{box-shadow:0 18px 0 #041009,0 30px 60px #000b,inset 0 1px 0 #ffffff08}.dash-stat{position:relative;overflow:hidden}.dash-stat:after{content:"";position:absolute;width:70px;height:70px;right:-25px;top:-25px;border-radius:50%;background:#00d08410;filter:blur(8px)}
+.plans .card{box-shadow:0 12px 0 #041009,0 30px 70px #000b,inset 0 1px 0 #ffffff08}.plans .card:nth-child(2){transform:translateY(-10px) translateZ(15px)}.plans .card:nth-child(2):hover{transform:translateY(-17px) rotateX(1.5deg)}
+@media(max-width:850px){.hero-visual:before{inset:35px 5px 15px}.hero-visual:after{inset:22px -5px 0}.grid .feature:nth-child(2),.grid .feature:nth-child(5),.plans .card:nth-child(2){transform:none}.grid .feature:nth-child(2):hover,.grid .feature:nth-child(5):hover,.plans .card:nth-child(2):hover{transform:translateY(-4px)}}
+</style>
+<style>
+.lock{display:inline-block;font-size:10px;font-weight:900;padding:3px 8px;border-radius:999px;border:1px solid #2b8a5d;color:#73f7bd;background:#08150f;margin-left:6px;vertical-align:middle}
+.dashapp{position:fixed;inset:0;z-index:80;background:var(--site-background);overflow:auto;display:none}.dashapp.show{display:block}
+.dash-wrap{max-width:1120px;margin:auto;padding:16px 22px 60px}
+.dash-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0 16px;position:sticky;top:0;background:#030806ee;backdrop-filter:blur(14px);z-index:5;flex-wrap:wrap}
+.dash-user{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:#9caea6}
+.badge{padding:4px 10px;border-radius:999px;background:var(--site-primary);color:var(--site-on-primary);font-weight:900;font-size:11px}
+.dtabs{display:flex;gap:8px;overflow:auto;margin:6px 0 18px;scrollbar-width:none}.dtabs::-webkit-scrollbar{display:none}
+.dtabs .btn{border-radius:999px;white-space:nowrap}
+.dpanel{display:none}.dpanel.active{display:block}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.trend h3{margin:8px 0 4px;font-size:17px}.trend p{color:#9caea6;font-size:13.5px;line-height:1.5;margin:4px 0}
+.heat{font-size:12px;font-weight:900;color:#ffc857;letter-spacing:1px}
+.tag{display:inline-block;margin:3px 4px 0 0;padding:6px 10px;border-radius:999px;border:1px solid #1a402f;background:#08150f;color:#cce9da;font-size:12px;font-weight:800;cursor:pointer}.tag:hover{border-color:#00d084}
+.todo{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #173126;font-size:14px;color:#d7e5df;cursor:pointer}.todo:last-child{border:0}
+.todo input{accent-color:#00d084;margin-top:3px}.todo.done span{opacity:.45;text-decoration:line-through}
+.dnote{font-size:12px;color:#7f9289;margin-top:10px;line-height:1.5}
+.saved-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid #173126;border-radius:12px;background:#08110d;margin-bottom:8px;font-size:14px}
+.sel-plan{width:100%;margin-top:8px;padding:11px;border-radius:12px;border:1px solid var(--border);background:#08110d;color:#fff}
+@media(max-width:850px){.dash-wrap{padding:12px 14px 50px}}
+.perktext{white-space:pre-wrap;background:#08110d;border:1px solid #173126;border-radius:12px;padding:10px;font-size:13px;color:#d7e5df;margin:8px 0 0;max-height:260px;overflow:auto;font-family:inherit}.perktext:empty{display:none}.perkh{margin:22px 0 10px;font-size:18px}textarea.input{resize:vertical;font-family:inherit}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"><style id="pro-theme">
+:root{--site-primary:#3ddc97;--site-on-primary:#04150d;--site-background:#0a1511;--site-font-body:'Figtree',system-ui,sans-serif;--site-font-heading:'Bricolage Grotesque','Figtree',system-ui,sans-serif;--border:#24493a;--muted:#93ab9e;--l1:#0e1d17;--l2:#13261e;--l3:#193229;--line:#24493a;--hi:#ffffff0f;--warm:#f2c14e}
+body{font-family:var(--site-font-body);line-height:1.5}
+#app{background:radial-gradient(900px 520px at 82% -6%,#3ddc9719,transparent 62%),radial-gradient(700px 400px at 0% 30%,#3ddc9708,transparent 60%),var(--site-background)}
+.wrap{max-width:1040px;padding-top:0}
+.nav{position:sticky;top:0;z-index:30;padding:14px 0;margin-bottom:0;background:#0a1511d9;box-shadow:0 0 0 100vmax #0a1511d9;clip-path:inset(0 -100vmax)}
+.nav:after{content:"";position:absolute;left:-100vmax;right:-100vmax;bottom:0;height:1px;background:#ffffff14}
+.logo{display:flex;align-items:center;gap:10px;font:700 17px var(--site-font-heading);letter-spacing:-.01em}
+.mark{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;font-style:normal;font-weight:800;font-size:15px;color:var(--site-on-primary);background:linear-gradient(160deg,#6cf0b4,#2fc784);box-shadow:0 1px 0 #fff6 inset,0 6px 14px -4px #3ddc97aa}
+.btn,.nav button{border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;border:1px solid var(--line);transition:filter .15s,transform .15s,background .15s}
+.primary,.nav button.primary{background:linear-gradient(180deg,#58eaaa,#2fc784);color:var(--site-on-primary);border-color:#7cf0c0;box-shadow:0 1px 0 #ffffff55 inset,0 10px 22px -10px #3ddc97cc}
+.secondary{background:var(--l3);color:#eaf3ee;box-shadow:0 1px 0 var(--hi) inset}
+.ghost,.nav button.ghost{background:transparent;border-color:transparent;color:#cfe3d8;box-shadow:none}
+.nav button.ghost:hover,.ghost:hover{background:#ffffff0d}
+.btn:focus-visible,.nav button:focus-visible,.tag:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--site-primary);outline-offset:2px}
+.hero{grid-template-columns:1.05fr .95fr;gap:56px;padding:84px 0 76px}
+.hero h1{font:800 clamp(40px,5.4vw,66px)/1.02 var(--site-font-heading);letter-spacing:-.035em;margin:0 0 18px}
+.hero p{font-size:18px;line-height:1.6;color:#a7bdb1;max-width:480px}
+.stack{position:relative;min-height:390px}
+.layer{position:absolute;width:78%;background:var(--l2);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:0 1px 0 var(--hi) inset,0 28px 50px -18px #000d}
+.layer small{display:block;color:var(--muted);font-size:13px}
+.layer b{display:block;font:700 18px var(--site-font-heading);margin:4px 0 6px;letter-spacing:-.01em}
+.l-back{top:0;right:0;background:var(--l1);transform:scale(.95);transform-origin:top right}
+.l-mid{top:96px;left:0}
+.l-front{top:206px;right:0;background:var(--l3);border-color:#3ddc9766;box-shadow:0 1px 0 var(--hi) inset,0 30px 60px -16px #000,0 0 0 7px #3ddc970f}
+.row{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #ffffff0f;font-size:14px;color:#dbe9e1}
+.row i{width:8px;height:8px;border-radius:50%;background:var(--site-primary);flex:none}
+.section{padding:76px 0}
+.section:nth-of-type(odd):not(.hero){background:var(--l1);box-shadow:0 0 0 100vmax var(--l1);clip-path:inset(0 -100vmax)}
+.section>h2,.section>.muted{text-align:center}
+.section h2{font:700 clamp(26px,3vw,34px)/1.15 var(--site-font-heading);letter-spacing:-.025em;margin:0 0 10px}
+.section>.muted{max-width:540px;margin:0 auto 6px;font-size:16px}
+.muted{color:var(--muted)}
+.grid,.plans,.bundle,.generator,.tool-grid{margin-top:34px}
+.eyebrow{text-transform:none;letter-spacing:0;font-size:13px;font-weight:700;color:var(--site-primary)}
+.card{background:var(--l2);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 1px 0 var(--hi) inset,0 1px 2px #0006,0 18px 34px -20px #000c}
+.card:hover{transform:none;box-shadow:0 1px 0 var(--hi) inset,0 1px 2px #0006,0 18px 34px -20px #000c}
+.section:nth-of-type(odd):not(.hero) .card{background:var(--l2)}
+.feature{transition:border-color .2s}.feature:hover{border-color:#3ddc9766}
+.feature h3{margin:0 0 6px;font:700 17px var(--site-font-heading)}
+.feature p{color:var(--muted);font-size:15px;line-height:1.55;margin:0}
+.tool-tabs{justify-content:center;margin-top:28px}
+.tool-tab{box-shadow:0 1px 0 var(--hi) inset}
+.input,.select{background:#0c1a14;border:1px solid var(--line);border-radius:10px;box-shadow:0 2px 4px #0005 inset}
+.result{background:var(--l3);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 0 var(--hi) inset}
+.idea,.dash-stat,.saved-row,.perktext{background:var(--l3);border-color:var(--line)}
+.progress{background:#0c1a14}.progress span{background:linear-gradient(90deg,#2fc784,#6cf0b4)}
+.acct{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;max-width:720px;margin:34px auto 0}
+.acct>div:first-child{flex:1;min-width:220px}.planline b{font:800 30px var(--site-font-heading);letter-spacing:-.02em}
+.discord{max-width:820px;margin:0 auto;padding:26px 28px;background:linear-gradient(135deg,#183a2c,#13261e);border-color:#3ddc9755}
+.discord h2{font-size:24px;text-align:left;margin:0 0 6px}.discord .muted{text-align:left;margin:0;font-size:15px}
+.lock{font-size:11px;letter-spacing:0;border-color:#3ddc9766;background:#0c1a14;color:#8ef3c4}
+.plans{align-items:stretch;gap:18px}
+.plan{display:flex;flex-direction:column;padding:26px}
+.plan h3{margin:0;font:700 20px var(--site-font-heading)}
+.price{font:800 40px var(--site-font-heading);letter-spacing:-.03em;margin:12px 0 16px}.price small{font:500 14px var(--site-font-body);color:var(--muted);letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:0 0 24px;flex:1;display:grid;gap:10px;color:#c8dbd0;font-size:15px}
+.plan li{display:flex;gap:10px;align-items:flex-start}.plan li:before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:#3ddc9722 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-4.8' fill='none' stroke='%233ddc97' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover}
+.plan:nth-child(2){background:linear-gradient(180deg,#1c3c2f,#13261e);border-color:#3ddc9780;transform:translateY(-10px);box-shadow:0 1px 0 #ffffff1a inset,0 30px 60px -20px #000,0 0 0 6px #3ddc970d}
+.popular{position:absolute;top:-12px;left:24px;background:var(--warm);color:#2a1d00;padding:4px 12px;border-radius:999px;font:700 12px var(--site-font-body);letter-spacing:0;text-transform:none;box-shadow:0 6px 14px -6px #f2c14e99}
+.footer{border-top:1px solid #ffffff12;margin-top:30px;padding:28px 0 8px;color:#6f8a7c;font-size:13px}
+.modal{background:var(--l2);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 0 var(--hi) inset,0 40px 90px #000}
+.login-modal{background:#050c09cc;backdrop-filter:blur(6px)}
+.dash-bar{background:#0a1511ee}
+.dashapp{background:radial-gradient(800px 400px at 80% -5%,#3ddc9714,transparent 60%),var(--site-background)}
+.toast{background:#eaf3ee}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:48px 0 40px;gap:36px}.stack{min-height:350px}.layer{width:86%}.section{padding:52px 0}.plan:nth-child(2){transform:none}.discord{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<style id="pro-theme-2">
+:root{--teal:#2dd4bf}
+#app{background:radial-gradient(1000px 560px at 84% -8%,#3ddc9724,transparent 62%),radial-gradient(760px 480px at -4% 22%,#2dd4bf14,transparent 60%),radial-gradient(600px 400px at 50% 110%,#f2c14e0a,transparent 60%),var(--site-background)}
+#app:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#ffffff17 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 55% at 50% 0,#000,transparent 75%)}
+.wrap{position:relative;z-index:1}
+.nav{background:#0a1511b3;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.hero h1 em{font-style:normal;color:var(--site-primary);text-shadow:0 0 40px #3ddc9766}
+.primary,.nav button.primary{background:linear-gradient(180deg,#62f0b2,#2dc98d 60%,#25b87f)}
+.primary:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.secondary:hover{background:#1f3b30;transform:translateY(-1px)}
+.layer{background:#13261eb8;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);animation:drift 8s ease-in-out infinite}
+.l-mid{animation-delay:-2.5s}.l-front{animation-delay:-5s}
+.l-front{border:1px solid transparent;background:linear-gradient(#1a3429f2,#1a3429f2) padding-box,linear-gradient(135deg,#6cf0b4,#3ddc9722 45%,#f2c14e88) border-box}
+@keyframes drift{50%{translate:0 -9px}}
+.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;padding:0 0 64px;color:#a7bdb1;font-size:14px;font-weight:600}
+.trust span{display:flex;align-items:center;gap:9px}
+.trust span:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--site-primary);box-shadow:0 0 10px var(--site-primary)}
+.card{background:linear-gradient(180deg,#16302600,#16302600),var(--l2);border:1px solid transparent;background:linear-gradient(var(--l2),var(--l2)) padding-box,linear-gradient(160deg,#3a6a56,#24493a 40%,#1b3a2e) border-box}
+.grid{counter-reset:f}.feature{counter-increment:f;position:relative;overflow:hidden}
+.feature:before{content:"0" counter(f);display:block;font:700 13px var(--site-font-heading);color:var(--site-primary);letter-spacing:.08em;margin-bottom:14px}
+.feature:after{content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(#3ddc9722,transparent 70%);opacity:0;transition:opacity .3s}
+.feature:hover:after{opacity:1}
+.feature:hover{background:linear-gradient(var(--l2),var(--l2)) padding-box,linear-gradient(160deg,#6cf0b4,#24493a 55%,#3ddc97) border-box}
+.tool-tabs{background:var(--l2);border:1px solid var(--line);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin:28px auto 0;box-shadow:0 1px 0 var(--hi) inset}
+.tool-tab{border:0!important;background:transparent;box-shadow:none!important;padding:9px 18px;color:#bcd0c5}
+.tool-tab.primary{background:linear-gradient(180deg,#62f0b2,#2dc98d);color:var(--site-on-primary)!important}
+.plan:nth-child(2){background:linear-gradient(#1d4033,#142b22) padding-box,linear-gradient(150deg,#6cf0b4,#3ddc9722 50%,#f2c14e99) border-box}
+.discord{background:linear-gradient(135deg,#1c4033,#13261e) padding-box,linear-gradient(120deg,#6cf0b4,#24493a 50%,#2dd4bf) border-box}
+.footer{border-top:1px solid #ffffff12;margin-top:20px;padding:44px 0 10px;text-align:left}
+.fcols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}
+.fcols p{color:var(--muted);font-size:14px;margin:12px 0 0;max-width:280px}
+.fcols b{display:block;color:#eaf3ee;font-size:14px;margin-bottom:12px}
+.fcols a{display:block;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:9px}.fcols a:hover{color:var(--site-primary)}
+.copy{margin-top:34px;padding-top:18px;border-top:1px solid #ffffff0f;color:#6f8a7c;font-size:13px}
+.rv{opacity:0;translate:0 18px;transition:opacity .6s ease,translate .6s ease}.rv.in{opacity:1;translate:0 0}
+@media(max-width:850px){.fcols{grid-template-columns:1fr 1fr}.fcols>div:first-child{grid-column:1/-1}.trust{padding-bottom:40px}}
+@media(prefers-reduced-motion:reduce){.layer{animation:none}.rv{opacity:1;translate:none}}
+</style>
+</head>
+<body>
+<main id="app"><div class="wrap">
+<nav class="nav"><div class="logo"><i class="mark">G</i>GTAG Creator Hub</div><div class="nav-actions"><button class="ghost desktop-only" id="navLogin" onclick="memberBtn()">Member Login</button><button class="primary" onclick="scrollToId('plans')">Join the Hub</button></div></nav>
+<section class="hero"><div><h1>Build. Create. <em>Grow.</em></h1><p>Tools, content ideas and a members dashboard for GTAG creators on YouTube and TikTok.</p><div class="actions"><button class="btn primary" onclick="scrollToId('plans')">View plans</button><button class="btn secondary" onclick="scrollToId('tools')">Try the tools</button></div></div><div class="stack" aria-hidden="true"><div class="layer l-back"><small>Challenge generator</small><b>No-jump tag, five rounds</b><small>Loser does the next intro.</small></div><div class="layer l-mid"><small>Title lab</small><b>Stop doing parkour wrong</b><small>Beginner vs pro: the same map</small></div><div class="layer l-front"><small>This week’s plan</small><b>Three posts, one series</b><div class="row"><i></i>Mon: movement showcase</div><div class="row"><i></i>Wed: custom game mode</div><div class="row"><i></i>Fri: beginner vs pro</div></div></div></section><div class="trust"><span>Free to start</span><span>Account created right after checkout</span><span>Private Discord for members</span><span>New resources every month</span></div>
+<section class="section"><h2>Your creator toolkit.</h2><p class="muted">Everything you need to plan, make and grow your GTAG channel.</p><div class="grid"><div class="card feature"><h3>Monthly Competitions</h3><p>Community challenges, creator battles and prizes to keep your audience engaged.</p></div><div class="card feature"><h3>PFP Studio</h3><p>Branding prompts, profile concepts and reusable creator identity ideas.</p></div><div class="card feature"><h3>Challenge Generator</h3><p>Generate fresh GTAG video challenges whenever you run out of ideas.</p></div><div class="card feature"><h3>Private Discord</h3><p>Feedback channels, collabs, competitions and a place to share wins.</p></div><div class="card feature"><h3>Monthly Bundle</h3><p>Editing help, assets, templates and creator resources in one drop.</p></div><div class="card feature"><h3>Growth Lab</h3><p>Practical systems for hooks, titles, consistency and community growth.</p></div></div></section>
+<section class="section" id="tools"><h2>More than a challenge generator.</h2><p class="muted">Quick generators for challenges, hooks, titles and a weekly plan. They run right in your browser.</p><div class="tool-tabs"><button class="btn secondary tool-tab" onclick="showTool('challenge',this)">Challenge</button><button class="btn secondary tool-tab" onclick="showTool('hook',this)">Hook Maker</button><button class="btn secondary tool-tab" onclick="showTool('title',this)">✍Title Lab</button><button class="btn secondary tool-tab" onclick="showTool('calendar',this)">Content Planner</button></div><div id="challenge" class="tool-panel active"><div class="generator"><div class="card"><label>Challenge type</label><select class="select" id="type"><option>Funny</option><option>Competitive</option><option>Skill</option><option>With friends</option><option>Short-form</option></select><button class="btn primary" style="width:100%;margin-top:8px" onclick="generateChallenge()">Generate challenge</button></div><div class="result" id="challengeResult"><div class="eyebrow">Your challenge</div><h3>Ready?</h3><p class="muted">Pick a style and generate a ready-to-film idea.</p></div></div></div><div id="hook" class="tool-panel"><div class="tool-grid"><div class="card"><div class="field"><label>Video topic</label><input class="input" id="hookTopic" placeholder="e.g. funniest GTAG movement"></div><button class="btn primary" onclick="makeHooks()">Generate hooks</button></div><div class="result" id="hookResult"><div class="eyebrow">Hook ideas</div><h3>Make the first 2 seconds count.</h3><p class="muted">Enter a topic to generate several openings.</p></div></div></div><div id="title" class="tool-panel"><div class="tool-grid"><div class="card"><div class="field"><label>What is the video about?</label><input class="input" id="titleTopic" placeholder="e.g. I tried the hardest GTAG route"></div><button class="btn primary" onclick="makeTitles()">Generate titles</button></div><div class="result" id="titleResult"><div class="eyebrow">Title Lab</div><h3>Package the idea better.</h3><p class="muted">Generate clickable title directions without leaving the Hub.</p></div></div></div><div id="calendar" class="tool-panel"><div class="card"><div class="eyebrow">7-day content plan</div><div class="ideas" id="calendarIdeas"></div><button class="btn primary" style="margin-top:12px" onclick="makeCalendar()">Refresh plan</button></div></div></section>
+<section class="section" id="bundle"><h2>Creator Bundle</h2><p class="muted">A new pack of resources every month, included with your membership.</p><div class="bundle"><div class="card"><h3>This month's bundle</h3><div class="list"><div class="item"><span class="check">✓</span> Edit-help guides & workflow checklists</div><div class="item"><span class="check">✓</span> Thumbnail & short-form assets</div><div class="item"><span class="check">✓</span> Latest GTAG trend report</div><div class="item"><span class="check">✓</span> YouTube & TikTok growth tools</div><div class="item"><span class="check">✓</span> Hook, title & caption ideas</div><div class="item"><span class="check">✓</span> New creator templates</div><div class="item"><span class="check">✓</span> Monthly content calendar</div></div></div><div class="card"><h3>Growth playbook</h3><p class="muted">Turn ideas into a repeatable publishing system.</p><div class="list"><div class="item">Trend radar — what's getting attention</div><div class="item">Short-form hooks that stop scrolling</div><div class="item">Better titles & thumbnails</div><div class="item">⏱Posting & consistency systems</div><div class="item">Community engagement ideas</div><div class="item">Collaboration strategies</div></div></div></div></section>
+<section class="section" id="member"><h2>Your account</h2><p class="muted">Log in to open your dashboard and see everything your plan includes.</p><div class="card acct"><div><small class="muted">Current plan</small><div class="planline"><b id="memberPlan">Guest</b></div><div class="progress"><span id="planProgress" style="width:18%"></span></div></div><div class="actions" style="margin:0"><button class="btn primary" onclick="openDash()">Open dashboard</button><button class="btn ghost" onclick="logout()">Log out</button></div></div></section>
+<section class="section"><div class="card discord"><div><h2>Private Creator Discord<span class="lock">Creator & Pro</span></h2><p class="muted">Exclusive to Creator and Pro members. Log in and we'll check your subscription before sending you the invite.</p></div><button class="btn primary" onclick="joinDiscord()">Join the Discord</button></div></section>
+<section class="section" id="plans"><h2>Pick your level.</h2><p class="muted">Choose a plan to sign up. As soon as your payment goes through you’ll create your username and password, and your perks unlock.</p><div class="plans"><div class="card plan"><h3>Starter</h3><div class="price">£0.00 <small>/year</small></div><ul><li>Monthly PFP pack</li><li>Challenge generator</li><li>Monthly digital bundle</li><li>Trend & growth updates</li></ul><a class="btn primary" style="width:100%;display:flex;justify-content:center;align-items:center;text-decoration:none;box-sizing:border-box" href="https://buy.stripe.com/dRm4gAbUp19EdonaS21gs03" target="_blank" rel="noopener" onclick="return planClick(this,'Starter')">Join Starter</a></div><div class="card plan"><div class="popular">Most popular</div><h3>Creator</h3><div class="price">£1.00 <small>/year</small></div><ul><li>Everything in Starter</li><li>Private Creator Discord</li><li>Monthly competitions</li><li>Premium creator tools</li><li>Extra assets & templates</li></ul><a class="btn primary" style="width:100%;display:flex;justify-content:center;align-items:center;text-decoration:none;box-sizing:border-box" href="https://buy.stripe.com/aFa00ke2x19E3NN5xI1gs00" target="_blank" rel="noopener" onclick="return planClick(this,'Creator')">Join Creator</a></div><div class="card plan"><h3>Pro</h3><div class="price">£2.00 <small>/year</small></div><ul><li>Everything in Creator</li><li>Priority creator help</li><li>Custom content feedback</li><li>Premium editing resources</li><li>Early access to new tools</li></ul><a class="btn primary" style="width:100%;display:flex;justify-content:center;align-items:center;text-decoration:none;box-sizing:border-box" href="https://buy.stripe.com/4gMbJ29Mhf0u4RR3pA1gs01" target="_blank" rel="noopener" onclick="return planClick(this,'Pro')">Go Pro</a></div></div></section>
+<div class="footer"><div class="fcols"><div><div class="logo"><i class="mark">G</i>GTAG Creator Hub</div><p>Tools, templates and a community for GTAG creators.</p></div><div><b>Explore</b><a href="#tools">Creator tools</a><a href="#plans">Plans</a></div><div><b>Members</b><a href="#" onclick="memberBtn();return false">Log in</a><a href="#" onclick="joinDiscord();return false">Discord</a></div></div><div class="copy">© 2026 GTAG Creator Hub</div></div>
+</div></main>
+<div class="login-modal" id="loginModal"><div class="modal"><div class="modal-head"><div><div class="eyebrow">Member access</div><h2 style="margin:5px 0 0">Log in to your account.</h2></div><button class="close" onclick="closeLogin()">×</button></div><p class="muted">Members get the Creator Dashboard and their plan’s perks. Creator and Pro also get the private Discord. We check your subscription every time you log in.</p>
+<div class="field"><label>Username</label><input class="input" id="loginUser" autocomplete="username" placeholder="your username"></div><div class="field"><label>Password</label><input class="input" id="loginPass" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div><button class="btn primary" style="width:100%;margin-top:10px" id="pwBtn" onclick="doLogin()">Log in</button><button class="btn secondary" style="width:100%;margin-top:8px" onclick="discordLogin()">Continue with Discord</button>
+<p class="muted" style="font-size:12px;margin:8px 0 0">Discord login uses your Discord email, so it should match the email you paid with.</p>
+<div style="text-align:center;color:#7f9289;font-size:12px;margin:14px 0">forgot your password? get a login code by email</div>
+<div id="ls1"><div class="field"><label>Email you subscribed with</label><input class="input" id="loginEmail" type="email" placeholder="you@example.com" onkeydown="if(event.key==='Enter')sendCode()"></div><button class="btn secondary" style="width:100%;margin-top:8px" id="sendBtn" onclick="sendCode()">Email me a login code</button></div>
+<div id="ls2" style="display:none"><p class="muted" id="codeSent" style="margin-top:0"></p><div class="field"><label>6-digit code</label><input class="input" id="loginCode" inputmode="numeric" maxlength="6" placeholder="123456" onkeydown="if(event.key==='Enter')verifyCode()"></div><button class="btn primary" style="width:100%;margin-top:8px" id="verifyBtn" onclick="verifyCode()">Log in</button><button class="btn ghost" style="width:100%;margin-top:6px" onclick="loginStep(1)">← Use a different email</button></div>
+<div class="notice" id="loginNotice" style="display:none"></div>
+<div style="border-top:1px solid #173126;margin-top:16px;padding-top:14px;text-align:center"><p class="muted" style="margin:0 0 8px;font-size:13px">New here?</p><button class="btn secondary" style="width:100%" onclick="goSignup()">✨ Sign up: view membership plans</button></div></div></div>
+<div class="login-modal" id="signupModal"><div class="modal"><div class="eyebrow">Payment received </div><h2 style="margin:5px 0 6px">Create your account.</h2><p class="muted" id="suEmail"></p><div class="field"><label>Choose a username</label><input class="input" id="suUser" maxlength="20" autocomplete="username" placeholder="e.g. gorilla_king"></div><div class="field"><label>Password (8+ characters)</label><input class="input" id="suPass" type="password" autocomplete="new-password"></div><div class="field"><label>Confirm password</label><input class="input" id="suPass2" type="password" autocomplete="new-password" onkeydown="if(event.key==='Enter')submitSignup()"></div><button class="btn primary" style="width:100%;margin-top:12px" id="suBtn" onclick="submitSignup()">Create account &amp; unlock my perks</button></div></div>
+<div class="dashapp" id="dashApp"><div class="dash-wrap">
+<div class="dash-bar"><div class="logo"><span>GTAG</span> DASHBOARD</div><div class="dash-user"><span id="dashUser"></span><span class="badge" id="dashPlan"></span><button class="btn secondary" onclick="closeDash();scrollToId('tools')">Creator tools</button><button class="btn secondary" onclick="joinDiscord()">Discord</button><button class="btn ghost" onclick="logout()">Log out</button><button class="btn primary" onclick="closeDash()">Close ✕</button></div></div>
+<div class="dtabs" id="dtabs"></div>
+<div class="dpanel" id="dp-overview"></div><div class="dpanel" id="dp-perks"></div><div class="dpanel" id="dp-trending"></div><div class="dpanel" id="dp-popoff"></div><div class="dpanel" id="dp-saved"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+const CONFIG={api:{me:'/api/me',emailStart:'/auth/email/start',emailVerify:'/auth/email/verify',logout:'/auth/logout',discordAuth:'/auth/discord',trends:'/api/trends'},checkout:{Starter:'https://buy.stripe.com/dRm4gAbUp19EdonaS21gs03',Creator:'https://buy.stripe.com/aFa00ke2x19E3NN5xI1gs00',Pro:'https://buy.stripe.com/4gMbJ29Mhf0u4RR3pA1gs01'}};
+const ideas={Funny:['Try to tag your friend while pretending you have no idea where they are.','Win a round using only the weirdest route you can find.','Let a random wheel decide your movement rules every 30 seconds.'],Competitive:['First player to 10 tags wins — but every miss adds a handicap.','Race through three areas without touching the ground twice.','Play a best-of-five where the loser chooses the next rule.'],Skill:['Complete a full round without using your usual movement technique.','Hit three difficult movement checkpoints in one run.','Create a route and beat your own fastest time five times.'],'With friends':['Everyone gets a secret role — figure out who is lying.','One player is the coach; everyone else must copy their strategy.','Make a team challenge where every player has one special rule.'],'Short-form':['You have 20 seconds to escape. Can you do it?','One life, one rule, one ridiculous challenge.','Can you complete this challenge before the sound ends?']};
+function $(id){return document.getElementById(id)}function scrollToId(id){$(id).scrollIntoView({behavior:'smooth'})}function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2500)}
+function showTool(id,btn){document.querySelectorAll('.tool-panel').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tool-tab').forEach(x=>x.classList.remove('primary'));btn.classList.add('primary');if(id==='calendar')makeCalendar()}
+function generateChallenge(){const t=$('type').value,a=ideas[t],x=a[Math.floor(Math.random()*a.length)];$('challengeResult').innerHTML='<div class="eyebrow">'+t+' challenge</div><h3>'+x+'</h3><p class="muted">Hook idea: “You won’t believe this actually worked…”</p><div class="result-actions"><button class="btn secondary" onclick="generateChallenge()">Another one</button><button class="btn primary" onclick="saveIdea()">Save idea</button></div>';window.currentIdea=x}
+function makeHooks(){const topic=$('hookTopic').value.trim()||'GTAG';const h=[`I tried ${topic} so you don't have to…`,`Nobody told me ${topic} would be this hard.`,`Can I actually pull off ${topic}?`,`This GTAG challenge got out of control…`,`You have to see what happened when I tried ${topic}.`];$('hookResult').innerHTML='<div class="eyebrow">Hook ideas</div><div class="ideas">'+h.map(x=>`<div class="idea"><span>${x}</span><button class="btn secondary mini" onclick="copyText(${JSON.stringify(x)})">Copy</button></div>`).join('')+'</div>';window.currentIdea=h[0]}
+function makeTitles(){const topic=$('titleTopic').value.trim()||'GTAG';const h=[`I Tried ${topic}… It Went Wrong`,`The Hardest GTAG Challenge I’ve Ever Done`,`I Thought This GTAG Trick Was Impossible`,`Can You Beat This GTAG Challenge?`,`This Changed How I Play GTAG`];$('titleResult').innerHTML='<div class="eyebrow">Title Lab</div><div class="ideas">'+h.map(x=>`<div class="idea"><span>${x}</span><button class="btn secondary mini" onclick="copyText(${JSON.stringify(x)})">Copy</button></div>`).join('')+'</div>';window.currentIdea=h[0]}
+function makeCalendar(){const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];const content=['Short challenge','Trend reaction','Community question','Skill test','Collab idea','Funny clip','Best moment / recap'];$('calendarIdeas').innerHTML=days.map((d,i)=>`<div class="idea"><strong>${d}</strong><span>${content[i]}</span><button class="btn secondary mini" onclick="copyText(${JSON.stringify(content[i])})">Copy</button></div>`).join('')}
+function copyText(t){navigator.clipboard?.writeText(t);showToast('Copied to clipboard.')}
+function saveIdea(){const idea=window.currentIdea||'New GTAG video idea';let saved=JSON.parse(localStorage.getItem('gtagIdeas')||'[]');saved.unshift(idea);saved=saved.slice(0,18);localStorage.setItem('gtagIdeas',JSON.stringify(saved));showToast('Idea saved to your dashboard.');if($('dashApp').classList.contains('show'))renderDash();}
+
+const PAID=['Creator','Pro'];
+let MEMBER=null,BACKEND_OK=false;const NO_SERVER='Login isn’t connected yet: the Hub’s login server needs to be switched on. Please try again later.';
+function getMember(){return MEMBER}
+const PLANS=['Starter','Creator','Pro'];function isMember(m){m=m||MEMBER;return !!m&&PLANS.includes(m.plan)}
+function isPaid(m){m=m||MEMBER;return !!m&&PAID.includes(m.plan)}
+async function api(path,opts){const r=await fetch(path,Object.assign({credentials:'include',headers:{'Content-Type':'application/json'}},opts||{}));let d={};try{d=await r.json()}catch(e){}return{ok:r.ok,status:r.status,data:d}}
+async function refreshMember(){try{const r=await api(CONFIG.api.me);BACKEND_OK=typeof r.data.loggedIn==='boolean';MEMBER=r.ok&&r.data.loggedIn?r.data:null}catch(e){BACKEND_OK=false;MEMBER=null}updateMember();return MEMBER}
+function openLogin(msg){loginStep(1);const n=$('loginNotice');n.textContent=msg||'';n.style.display=msg?'block':'none';$('loginModal').classList.add('show');setTimeout(()=>$('loginEmail').focus(),50)}
+function closeLogin(){$('loginModal').classList.remove('show')}
+function loginStep(n){$('ls1').style.display=n===1?'block':'none';$('ls2').style.display=n===2?'block':'none'}
+function memberBtn(){MEMBER?openDash():openLogin()}
+function goSignup(){closeLogin();scrollToId('plans');showToast('Pick a plan to sign up. Creator and Pro unlock the dashboard and Discord.')}
+async function sendCode(){
+ const email=$('loginEmail').value.trim().toLowerCase();
+ if(!BACKEND_OK){showToast(NO_SERVER);return}
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){showToast('Enter a valid email.');return}
+ const b=$('sendBtn');b.disabled=true;b.textContent='Sending…';
+ try{const r=await api(CONFIG.api.emailStart,{method:'POST',body:JSON.stringify({email})});
+  if(r.ok){window.loginEmailVal=email;$('codeSent').textContent='We sent a 6-digit code to '+email+'. It expires in 10 minutes.';loginStep(2);setTimeout(()=>$('loginCode').focus(),50)}
+  else showToast(r.data.error||'Could not send the code.')}
+ catch(e){showToast('Can’t reach the server. Please try again soon.')}
+ b.disabled=false;b.textContent='Email me a login code'}
+async function verifyCode(){
+ const code=$('loginCode').value.trim();if(!/^\d{6}$/.test(code)){showToast('Enter the 6-digit code.');return}
+ const b=$('verifyBtn');b.disabled=true;b.textContent='Checking…';
+ try{const r=await api(CONFIG.api.emailVerify,{method:'POST',body:JSON.stringify({email:window.loginEmailVal,code})});
+  if(r.ok){await refreshMember();$('loginCode').value='';afterLogin()}else showToast(r.data.error||'That code didn’t work.')}
+ catch(e){showToast('Can’t reach the server. Please try again soon.')}
+ b.disabled=false;b.textContent='Log in'}
+async function doLogin(){
+ const username=$('loginUser').value.trim(),password=$('loginPass').value;
+ if(!username||!password){showToast('Enter your username and password.');return}
+ if(!BACKEND_OK){showToast(NO_SERVER);return}
+ const b=$('pwBtn');b.disabled=true;b.textContent='Logging in…';
+ try{const r=await api('/auth/login',{method:'POST',body:JSON.stringify({username,password})});
+  if(r.ok){$('loginPass').value='';await refreshMember();afterLogin()}else showToast(r.data.error||'Login failed.')}
+ catch(e){showToast('Can’t reach the server. Please try again soon.')}
+ b.disabled=false;b.textContent='Log in'}
+let PENDING='';
+async function submitSignup(){
+ const username=$('suUser').value.trim().toLowerCase(),password=$('suPass').value;
+ if(password!==$('suPass2').value){showToast('Passwords don’t match.');return}
+ const b=$('suBtn');b.disabled=true;b.textContent='Creating…';
+ try{const r=await api('/auth/signup',{method:'POST',body:JSON.stringify({sessionId:PENDING,username,password})});
+  if(r.ok){history.replaceState(null,'',location.pathname);$('signupModal').classList.remove('show');await refreshMember();showToast('Account created! Your perks are unlocked.');openDash();dashTab('perks')}
+  else showToast(r.data.error||'Could not create your account.')}
+ catch(e){showToast('Can’t reach the server. Please try again.')}
+ b.disabled=false;b.textContent='Create account & unlock my perks'}
+async function loadPerks(){
+ const el=$('dp-perks');el.innerHTML='<p class="muted">Loading your perks…</p>';
+ let r;try{r=await api('/api/library')}catch(e){r={ok:false}}
+ if(!r.ok){el.innerHTML='<p class="muted">Couldn’t load your perks. Try again in a moment.</p>';return}
+ const items=r.data.items;
+ el.innerHTML='<div class="eyebrow">My Perks</div><h2 style="margin:4px 0 4px">Everything in your plan.</h2><p class="muted">You’re on <b>'+esc(r.data.plan)+'</b>. Locked perks come with a higher plan.</p>'+
+ ['Starter','Creator','Pro'].map(t=>'<h3 class="perkh">'+t+' perks</h3><div class="dgrid">'+items.filter(i=>i.tier===t).map(perkHTML).join('')+'</div>').join('')}
+function perkHTML(i){
+ let body='';
+ if(i.locked)body='<div class="dnote">🔒 Included in '+i.tier+'</div><button class="btn secondary mini" style="margin-top:8px" onclick="closeDash();scrollToId(\'plans\')">Upgrade</button>';
+ else if(i.kind==='download')body='<a class="btn primary mini" style="text-decoration:none;display:inline-block" href="/download/'+i.id+'" download>⬇ Download</a>';
+ else if(i.kind==='text')body='<pre class="perktext" style="display:block">'+esc(i.body)+'</pre>';
+ else if(i.kind==='tool')body='<input class="input" id="in-'+i.id+'" placeholder="'+esc(i.ph||'')+'"><button class="btn primary mini" style="margin-top:8px" onclick="runTool(\''+i.id+'\')">Generate</button><pre class="perktext" id="out-'+i.id+'"></pre>';
+ else body='<input class="input" id="lk-'+i.id+'" placeholder="Link to your video (optional)"><textarea class="input" id="in-'+i.id+'" rows="3" style="margin-top:8px" placeholder="'+esc(i.ph||'')+'"></textarea><button class="btn primary mini" style="margin-top:8px" onclick="sendReq(\''+i.id+'\')">Send</button><div class="dnote" id="out-'+i.id+'"></div>';
+ return '<div class="card trend"><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p>'+body+'</div>'}
+async function runTool(id){const o=$('out-'+id);o.textContent='…';const r=await api('/api/tool/'+id,{method:'POST',body:JSON.stringify({input:$('in-'+id).value})});o.textContent=r.ok?r.data.output:(r.data.error||'Something went wrong.')}
+async function sendReq(id){const o=$('out-'+id);o.textContent='Sending…';const r=await api('/api/request',{method:'POST',body:JSON.stringify({id,message:$('in-'+id).value,link:$('lk-'+id).value})});o.textContent=r.ok?'Sent! We’ll reply to your account email.':(r.data.error||'Something went wrong.');if(r.ok)$('in-'+id).value=''}
+function discordLogin(){if(!BACKEND_OK){showToast(NO_SERVER);return}window.location.href=CONFIG.api.discordAuth}
+function afterLogin(){closeLogin();if(isMember()){showToast('Welcome back! Opening your dashboard…');openDash()}else{showToast('You’re logged in, but no active membership was found. Pick a plan to unlock your perks.');scrollToId('plans')}}
+async function logout(){try{await api(CONFIG.api.logout,{method:'POST'})}catch(e){}MEMBER=null;closeDash();updateMember();showToast('Logged out.')}
+function updateMember(){const m=MEMBER;$('memberPlan').textContent=m&&m.plan&&m.plan!=='None'?m.plan:'Guest';$('planProgress').style.width=isPaid(m)?'100%':m?'35%':'18%';$('navLogin').textContent=m?'Dashboard':'Member Login'}
+function joinDiscord(){
+ const m=MEMBER;
+ if(!m){showToast('Log in with your membership to join the Discord.');openLogin();return}
+ if(!isPaid(m)){showToast('The Discord is for Creator and Pro members. Upgrade to join.');closeDash();scrollToId('plans');return}
+ if(!m.invite){showToast('Invite unavailable. Please contact support.');return}
+ window.open(m.invite,'_blank','noopener')}
+async function initAuth(){
+ await refreshMember();
+ const q=new URLSearchParams(location.search);
+ const sid=q.get('session_id');
+ if(q.get('welcome')&&sid&&BACKEND_OK){
+  let r;try{r=await api('/api/checkout-session?id='+encodeURIComponent(sid))}catch(e){r={ok:false,data:{}}}
+  if(r.ok&&!r.data.hasAccount){PENDING=sid;$('suEmail').textContent='Paid with '+r.data.email+'. Choose how you’ll log in:';$('signupModal').classList.add('show')}
+  else{history.replaceState(null,'',location.pathname);await refreshMember();if(isMember()){showToast('Payment received. Your plan is updated!');openDash();dashTab('perks')}else openLogin(r.ok?'You already have an account. Log in to unlock your new plan.':'We couldn’t verify that payment. Log in to your account.')}}
+ const l=q.get('login');
+ if(l){history.replaceState(null,'',location.pathname);
+  if(l==='ok')afterLogin();else if(l==='noemail')showToast('Your Discord email isn’t verified. Verify it in Discord or log in with email.');else showToast('Discord login failed. Please try again.')}}
+/* ===== Creator Dashboard (members only) ===== */
+const TRENDS={updated:'Editor’s picks: refresh these weekly (or connect CONFIG.api.trends for live data)',
+topics:[
+{t:'Movement & parkour showcases',h:3,why:'Clean, satisfying movement clips travel well on Shorts/TikTok and get rewatched.',idea:'Film one route in 3 speeds: beginner, pro, impossible.'},
+{t:'Custom game modes & rule twists',h:3,why:'Viewers love a simple rule change that makes a normal round feel brand new.',idea:'“Every tag I miss, I lose a movement option.”'},
+{t:'Beginner → pro progress series',h:2,why:'Series keep people subscribing because they want the next part.',idea:'Day 1 vs Day 30 skill comparison.'},
+{t:'Funny reactions & chaos moments',h:2,why:'Short, loud, unexpected moments are the easiest to clip and share.',idea:'Compile your top 5 fails with a bold on-screen caption.'},
+{t:'Tips, tricks & “you’re doing it wrong”',h:2,why:'Search-friendly videos keep earning views weeks after posting.',idea:'“3 mistakes every new player makes.”'},
+{t:'Community battles & collabs',h:1,why:'Collabs borrow another audience and give you a reason to tag each other.',idea:'Challenge a similar-size creator to a head-to-head.'}],
+tags:['#gtag','#gorillatag','#vr','#vrgaming','#quest','#gtagfunny','#gtagparkour','#gtagchallenge','#shorts','#fyp'],
+formats:['20-second “one rule, one challenge” short','Before / after skill comparison','“I tried X for 24 hours” run','Top 5 moments recap','Tutorial in under 30 seconds']};
+const POPOFF=[
+'Hook in the first 2 seconds: show the result or the wildest moment first.',
+'Post on a schedule you can keep: 3 shorts a week beats 10 in one week then nothing.',
+'Design the thumbnail before you film: one face/clear subject, 3 words max.',
+'Reuse winners: if a clip does well, make Part 2 within 48 hours.',
+'Reply to every comment in the first hour. It signals activity and builds loyalty.',
+'End on a question or cliffhanger so people comment and rewatch.',
+'Cross-post: YouTube Shorts, TikTok and Reels from one recording session.',
+'Review your last 5 videos weekly: copy what held attention, drop what didn’t.',
+'Collab with someone near your size every month.',
+'Keep captions on screen: many viewers watch muted.'];
+const HOOKS=['Nobody believes this is possible in GTAG…','I tried [thing] so you don’t have to.','This one rule ruined the entire round.','Watch until the end. It gets worse.','Day 1 vs Day 30 of [skill].'];
+function dTabs(){return[['overview','Overview'],['perks','My Perks'],['trending','Trending in GTAG'],['popoff','Pop Off Playbook'],['saved','Saved Ideas']]}
+function openDash(){
+ const m=getMember();
+ if(!m){showToast('Log in to open your dashboard.');openLogin();return}
+ if(!isMember(m)){showToast('The dashboard is for members. Pick a plan to unlock it.');scrollToId('plans');return}
+ $('dashUser').textContent=m.email||m.username||'Member';$('dashPlan').textContent=m.plan;
+ $('dtabs').innerHTML=dTabs().map((x,i)=>`<button class="btn secondary" data-t="${x[0]}" onclick="dashTab('${x[0]}')">${x[1]}</button>`).join('');
+ $('dashApp').classList.add('show');document.body.style.overflow='hidden';
+ renderDash();loadLiveTrends();dashTab('overview')}
+function closeDash(){$('dashApp').classList.remove('show');document.body.style.overflow=''}
+function dashTab(id){if(id==='perks')loadPerks();document.querySelectorAll('.dpanel').forEach(x=>x.classList.toggle('active',x.id==='dp-'+id));document.querySelectorAll('#dtabs .btn').forEach(b=>b.classList.toggle('primary',b.dataset.t===id));$('dashApp').scrollTop=0}
+function getSaved(){try{return JSON.parse(localStorage.getItem('gtagIdeas')||'[]')}catch(e){return[]}}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function getDone(){try{return JSON.parse(localStorage.getItem('gtagDone')||'{}')}catch(e){return{}}}
+function toggleTodo(i){const d=getDone();d[i]=!d[i];localStorage.setItem('gtagDone',JSON.stringify(d));renderDash()}
+function delIdea(i){const a=getSaved();a.splice(i,1);localStorage.setItem('gtagIdeas',JSON.stringify(a));renderDash()}
+function trendCard(x){return`<div class="card trend"><div class="heat">${'🔥'.repeat(x.h)}<span style="color:#7f9289"> ${['','Rising','Hot','Peak'][x.h]}</span></div><h3>${esc(x.t)}</h3><p>${esc(x.why)}</p><p><b style="color:#73f7bd">Try:</b> ${esc(x.idea)}</p><div class="result-actions"><button class="btn secondary mini" onclick="copyText(${esc(JSON.stringify(x.idea))})">Copy idea</button></div></div>`}
+function renderDash(){
+ const done=getDone(),saved=getSaved(),doneN=POPOFF.filter((_,i)=>done[i]).length;
+ $('dp-overview').innerHTML=`<div class="eyebrow">Welcome back</div><h2 style="margin:4px 0 14px">Your creator command centre.</h2>
+ <div class="dash-grid"><div class="dash-stat"><b>${saved.length}</b><small>Saved ideas</small></div><div class="dash-stat"><b>${doneN}/${POPOFF.length}</b><small>Playbook done</small><div class="progress"><span style="width:${doneN/POPOFF.length*100}%"></span></div></div><div class="dash-stat"><b>${TRENDS.topics.filter(x=>x.h===3).length}</b><small>Peak trends now</small></div><div class="dash-stat"><b>${esc($('dashPlan').textContent)}</b><small>Your plan</small></div></div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">Today’s move</div><h3 style="margin:6px 0">${esc(TRENDS.topics[0].t)}</h3><p class="muted">${esc(TRENDS.topics[0].idea)}</p><div class="actions"><button class="btn primary" onclick="dashTab('trending')">See all trends →</button><button class="btn secondary" onclick="closeDash();showTool('challenge',document.querySelector('.tool-tab'));scrollToId('tools')">Generate a challenge</button></div></div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">Next up from the playbook</div>${POPOFF.map((t,i)=>[t,i]).filter(x=>!done[x[1]]).slice(0,3).map(x=>`<label class="todo" onclick="toggleTodo(${x[1]})"><input type="checkbox" onclick="event.preventDefault()"><span>${esc(x[0])}</span></label>`).join('')||'<p class="muted">All done. Great work! 🎉</p>'}</div>`;
+ $('dp-trending').innerHTML=`<div class="eyebrow">Trending in GTAG</div><h2 style="margin:4px 0 6px">What’s getting attention.</h2><p class="muted">${esc(TRENDS.updated)}</p><div class="dgrid" style="margin-top:14px">${TRENDS.topics.map(trendCard).join('')}</div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">Hashtags to use (tap to copy)</div><div>${TRENDS.tags.map(t=>`<span class="tag" onclick="copyText('${t}')">${t}</span>`).join('')}</div><div class="dnote">Use 3–5 relevant tags per post, not all of them.</div></div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">Formats that work</div><div class="list" style="margin-top:8px">${TRENDS.formats.map(f=>`<div class="item"><span class="check">✓</span>${esc(f)}</div>`).join('')}</div></div>`;
+ $('dp-popoff').innerHTML=`<div class="eyebrow">Pop Off Playbook</div><h2 style="margin:4px 0 14px">Do these and watch it grow.</h2><div class="card">${POPOFF.map((t,i)=>`<label class="todo ${done[i]?'done':''}" onclick="toggleTodo(${i})"><input type="checkbox" ${done[i]?'checked':''} onclick="event.preventDefault()"><span>${esc(t)}</span></label>`).join('')}</div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">Hook formulas</div><div class="ideas" style="margin-top:8px">${HOOKS.map(h=>`<div class="idea"><span>${esc(h)}</span><button class="btn secondary mini" onclick="copyText(${esc(JSON.stringify(h))})">Copy</button></div>`).join('')}</div></div>`;
+ $('dp-saved').innerHTML=`<div class="eyebrow">Saved ideas</div><h2 style="margin:4px 0 14px">Your idea bank.</h2>${saved.length?saved.map((x,i)=>`<div class="saved-row"><span>${esc(x)}</span><span><button class="btn secondary mini" onclick="copyText(${esc(JSON.stringify(x))})">Copy</button> <button class="btn ghost mini" onclick="delIdea(${i})">Delete</button></span></div>`).join(''):'<p class="muted">Nothing saved yet. Use the creator tools and tap “Save idea”.</p>'}<div class="dnote">Saved ideas are stored in this browser.</div>`}
+async function loadLiveTrends(){
+ if(!CONFIG.api.trends)return;
+ try{const r=await fetch(CONFIG.api.trends,{credentials:'include'});if(!r.ok)return;const d=await r.json();if(d.topics)TRENDS.topics=d.topics;if(d.tags)TRENDS.tags=d.tags;if(d.formats)TRENDS.formats=d.formats;if(d.updated)TRENDS.updated=d.updated;renderDash()}catch(e){}}
+function planClick(a,plan){let u=CONFIG.checkout[plan];if(!u){showToast('This plan isn’t available yet.');return false}if(MEMBER&&MEMBER.email)u+=(u.includes('?')?'&':'?')+'prefilled_email='+encodeURIComponent(MEMBER.email);a.href=u;showToast('Opening secure Stripe checkout in a new tab…');return true}
+window.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLogin();closeDash()}});makeCalendar();initAuth();
+</script>
+<style data-sites-preview-theme>:root{--site-primary:#00d084 !important;--site-secondary:#06150f !important;--site-background:#030806 !important;--site-on-primary:#02120b !important;--site-on-secondary:#fff !important;--site-on-background:#f4faf7 !important;--site-spacing-scale:1 !important;--site-radius-scale:1 !important;--site-font-body:Inter,system-ui,sans-serif !important;--site-font-heading:Inter,system-ui,sans-serif !important}body{background-color:#030806 !important;color:#f4faf7 !important}#app{background-color:#030806 !important}</style>
+<script type="application/json" data-sites-preview-theme>{"appearance":"custom","primary":"#00d084","secondary":"#06150f","background":"#030806","typography":"modern","spacing":1,"roundness":1,"headingScale":1,"decorationOpacity":1}</script>
+<script>(function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var els=document.querySelectorAll('.section h2,.section>.muted,.section .card,.trust span');els.forEach(function(e){e.classList.add('rv')});var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});els.forEach(function(e){io.observe(e)})})();</script>
+</body></html>
